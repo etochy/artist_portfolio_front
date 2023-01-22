@@ -10,6 +10,8 @@ import {
 } from "react-router-dom";
 import "./index.css";
 
+const projectName = "/artist_portfolio_front";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +21,9 @@ const router = createBrowserRouter([
     path: "/projects/:idProject",
     element: <Projects/>,
 }
-]);
+], {
+  basename: projectName,
+});
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
