@@ -29,3 +29,6 @@
     flex-direction: column;
 }
 
+.container_img_project:hover {
+    opacity: 0.8;
+}

@@ -41,6 +41,18 @@ class ListProjects extends Component {
                 description: "Description projet 3",
                 illustration: "https://launay-esteban.ovh/public_files/pictures/macro/IMGP5138.jpg"
             },
+            {
+                id:"4",
+                name: "Projet 4",
+                description: "Description projet 4",
+                illustration: "https://launay-esteban.ovh/public_files/pictures/animals/IMGP2602.jpg"
+            },
+            {
+                id:"5",
+                name: "Projet 5",
+                description: "Description projet 5",
+                illustration: "https://launay-esteban.ovh/public_files/pictures/landscapes/P1020183.jpg"
+            },
         ];
         let tmpIllustrations = [
             {
@@ -68,21 +80,28 @@ class ListProjects extends Component {
     render() {
         return (
             <div>
+                <h3>Illustrations</h3>
                 <div className="illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
                         <div key={key} className="container_img" >
                             <img src={illustration.illustration} alt={illustration.description} className="picture" />
-                            <span className="text_picture">
-                                {illustration.description}
-                            </span>
+                            <div className="text_picture">
+                                    <span>
+                                        {illustration.name}
+                                    </span>
+                                    <span>
+                                        {illustration.description}
+                                    </span>
+                                </div>
                         </div>
                     )}
                 </div>
 
+                <h3>Mes projets</h3>
                 <div className="illustration_container">
                     {this.state.listProjects.map((project, key) =>
                         <Link to={"/projects/"+project.id} key={key}>
-                            <div className="container_img" >
+                            <div className="container_img container_img_project" >
                                 <img src={project.illustration} alt={project.description} className="picture" />
                                 <div className="text_picture">
                                     <span>
