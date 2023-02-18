@@ -1,14 +1,22 @@
 import { Component } from 'react';
 import './App.css';
+import APropos from './components/aPropos/APropos';
+import Contact from './components/contact/Contact';
+import ListProjects from './components/listProjects/ListProjects';
 import NavBar from './components/navbar/NavBar';
 
 class App extends Component {
 
-  render(){
+  render() {
     return (
       <div>
         <NavBar />
-        Main
+        <div className='separator'/>
+        <ListProjects />
+        <div className='separator'/>
+        <APropos />
+        <div className='separator'/>
+        <Contact />
       </div>
     );
   }

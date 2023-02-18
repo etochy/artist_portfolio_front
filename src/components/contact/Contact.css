@@ -1,0 +1,13 @@
+.contact_container {
+    display: flex;
+    flex-direction: column;
+    padding: 1em;
+}
+.contact_header {
+    margin-bottom: 1em;
+    display: flex;
+    flex-direction: row;
+}
+.contact_mail {
+    margin-right: 1em;
+}

@@ -11,3 +11,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.whiteIcon {
+  color: white;
+  fill: white;
+}
+
+.separator {
+  border-bottom: 1px solid grey;
+  margin: 1em;
+}
