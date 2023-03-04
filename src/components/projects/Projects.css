@@ -1,0 +1,10 @@
+.illustration_container_project{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.picture {
+    max-height: 20em;
+    /* border-radius: 10px; */
+}

@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { getAllIllustrations } from "../../services/illustrationsService";
+import { getAllProjects, getProjectDetails } from "../../services/projectsService";
 
 import "./ListProjects.css"
 
@@ -21,59 +23,21 @@ class ListProjects extends Component {
         this.fetchDataProjects();
     }
 
-    fetchDataProjects() {
-        let tmpProjects = [
-            {
-                id:"1",
-                name: "Projet 1",
-                description: "Description projet 1",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/macro/P1020140.jpg"
-            },
-            {
-                id:"2",
-                name: "Projet 2",
-                description: "Description projet 2",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/macro/P1020117.jpg"
-            },
-            {
-                id:"3",
-                name: "Projet 3",
-                description: "Description projet 3",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/macro/IMGP5138.jpg"
-            },
-            {
-                id:"4",
-                name: "Projet 4",
-                description: "Description projet 4",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/animals/IMGP2602.jpg"
-            },
-            {
-                id:"5",
-                name: "Projet 5",
-                description: "Description projet 5",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/landscapes/P1020183.jpg"
-            },
-        ];
-        let tmpIllustrations = [
-            {
-                name: "Illustration 1",
-                description: "Description 1",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/laos/IMGP1043.jpg"
-            },
-            {
-                name: "Illustration 2",
-                description: "Description 2",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/south_france/P1000543.jpg"
-            },
-            {
-                name: "Illustration 3",
-                description: "Description 3",
-                illustration: "https://launay-esteban.ovh/public_files/pictures/north_france/P1010771.jpg"
-            },
-        ];
+    async fetchDataProjects() {
+        let illus = await getAllIllustrations();
+        let projects = await getAllProjects();
         this.setState({
-            listProjects: tmpProjects,
-            listIllustrations: tmpIllustrations
+            listIllustrations: illus
+        });
+        this.fetchDetailsProjects(projects);
+    }
+
+    async fetchDetailsProjects(projects) {
+        let lstP = []
+        await projects.forEach(async p => {
+            let pro = await getProjectDetails(p.projectName); 
+            lstP.push(pro);
+            this.setState({listProjects: lstP});
         });
     }
 
@@ -83,26 +47,27 @@ class ListProjects extends Component {
                 <h3>Illustrations</h3>
                 <div className="illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
-                        <div key={key} className="container_img" >
+                        <a key={key} className="container_img" target="_blank" rel="noopener noreferrer" href={illustration.illustration}>
                             <img src={illustration.illustration} alt={illustration.description} className="picture" />
                             <div className="text_picture">
-                                    <span>
-                                        {illustration.name}
-                                    </span>
-                                    <span>
-                                        {illustration.description}
-                                    </span>
-                                </div>
-                        </div>
+                                <span>
+                                    {illustration.name}
+                                </span>
+                                <span>
+                                    {illustration.description}
+                                </span>
+                            </div>
+                        </a>
                     )}
                 </div>
 
                 <h3>Mes projets</h3>
                 <div className="illustration_container">
                     {this.state.listProjects.map((project, key) =>
-                        <Link to={"/projects/"+project.id} key={key}>
+                        <Link to={"/projects/" + project.projectName} key={key}>
                             <div className="container_img container_img_project" >
                                 <img src={project.illustration} alt={project.description} className="picture" />
+                                <div className="text_picture background" />
                                 <div className="text_picture">
                                     <span>
                                         {project.name}

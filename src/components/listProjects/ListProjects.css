@@ -9,11 +9,11 @@
     position: relative;
     text-align: center;
     color: #fff;
+    margin: 5px;
 }
 
 .picture {
     max-height: 20em;
-    margin: 5px;
     /* border-radius: 10px; */
 }
 
@@ -29,6 +29,15 @@
     flex-direction: column;
 }
 
+.text_picture.background{
+    background-color: black;
+    opacity: 0.4;
+}
+
 .container_img_project:hover {
+    opacity: 0.8;
+}
+
+.container_img:hover {
     opacity: 0.8;
 }
