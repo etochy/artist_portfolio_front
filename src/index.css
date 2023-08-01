@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(45deg, rgb(230, 230, 218), transparent),
+  url("./assets/noise.svg");
 }
 
 code {
@@ -25,4 +27,8 @@ a {
 .separator {
   border-bottom: 1px solid grey;
   margin: 1em;
+}
+
+html {
+  scroll-behavior: smooth;
 }
