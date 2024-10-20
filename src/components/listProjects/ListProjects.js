@@ -16,7 +16,6 @@ class ListProjects extends Component {
         super(props);
         this.state = {
             listProjects: [],
-            listIllustrations: []
         }
     }
 
@@ -25,11 +24,7 @@ class ListProjects extends Component {
     }
 
     async fetchDataProjects() {
-        let illus = await getAllIllustrations();
         let projects = await getAllProjects();
-        this.setState({
-            listIllustrations: illus
-        });
         this.fetchDetailsProjects(projects);
     }
 
@@ -45,13 +40,6 @@ class ListProjects extends Component {
     render() {
         return (
             <div>
-                <h3>Illustrations</h3>
-                <div className="illustration_container">
-                    {this.state.listIllustrations.map((illustration, key) =>
-                        <Picture picture={illustration} key={key} />
-                    )}
-                </div>
-
                 <h3>Mes projets</h3>
                 <div className="illustration_container">
                     {this.state.listProjects.map((project, key) =>

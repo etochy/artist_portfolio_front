@@ -14,9 +14,14 @@ class NavBar extends Component {
                             Home
                         </Link>
                     </ButtonBase>
-                    <ButtonBase className="button_navbar">
-                        <Link to="#about-me">
-                            A propos
+                    <ButtonBase className="button_navbar" >
+                        <Link to="/test1">
+                            Test 1
+                        </Link>
+                    </ButtonBase>
+                    <ButtonBase className="button_navbar" >
+                        <Link to="/test2">
+                            Test 2
                         </Link>
                     </ButtonBase>
                     <ButtonBase className="button_navbar">
@@ -25,11 +30,16 @@ class NavBar extends Component {
                                 <span>
                                     Liste Projets
                                 </span>
-                                {/* <SendIcon className="whiteIcon" /> */}
                             </div>
                         </Link>
                     </ButtonBase>
-                    <ButtonBase className="button_navbar" >Contact</ButtonBase>
+{/*                     
+                    <ButtonBase className="button_navbar">
+                        <Link to="#about-me">
+                            A propos
+                        </Link>
+                    </ButtonBase>
+                    <ButtonBase className="button_navbar" >Contact</ButtonBase> */}
                 </div>
             </div>
         );

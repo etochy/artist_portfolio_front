@@ -1,0 +1,13 @@
+.test1__illustration_container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    overflow: auto;
+    margin: 0 auto;
+}
+
+@media screen and (min-width: 720px) {
+    .test1__illustration_container {
+        width: 80%;
+    }
+}

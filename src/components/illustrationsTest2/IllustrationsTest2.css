@@ -1,0 +1,10 @@
+.test2__illustration_container {
+    display: flex;
+    flex-flow: column wrap;
+    height: 200vh;
+    overflow: auto;
+    justify-content: center;
+    & .test2__illustration_container__picture{
+        max-height: 2em;
+    }
+}

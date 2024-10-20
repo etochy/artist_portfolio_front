@@ -19,8 +19,8 @@ class Header extends Component {
                         </div>
                     </div>
                 </Link>
-                {/* <NavBar />
-                <div className='separator' /> */}
+                <NavBar />
+                <div className='separator' />
             </div>
         );
     }
