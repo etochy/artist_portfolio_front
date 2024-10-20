@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import { getAllIllustrationsProject } from "../../services/projectsService";
 import { getProjectDetails, getProjetsForTag } from "../../services/infosService";
 import "./Projects.css";
+import { Picture } from "../picture/Picture";
 import { Tooltip } from "@mui/material";
 
 function withParams(Component) {
@@ -51,9 +52,7 @@ class Projects extends Component {
                 <p>{this.state.projectDetail.description}</p>
                 <div className="illustration_container_project">
                     {this.state.illustrations.map((illustration, key) =>
-                        <a key={key} className="container_img" rel="noopener noreferrer" target="_blank" href={illustration}>
-                            <img src={illustration} className="picture" alt={illustration} />
-                        </a>
+                        <Picture picture={{ illustration: illustration }} key={key} />
                     )}
                 </div>
                 <div className="tags_container_project">

@@ -29,7 +29,6 @@ class NavBar extends Component {
                             </div>
                         </Link>
                     </ButtonBase>
-                    {/* <Button  class="button_navbar"  variant="contained"><Link to="/projects/1">Projet 1</Link></Button> */}
                     <ButtonBase className="button_navbar" >Contact</ButtonBase>
                 </div>
             </div>

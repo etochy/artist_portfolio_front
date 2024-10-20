@@ -5,7 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(45deg, rgb(230, 230, 218), transparent),
+  background: linear-gradient(45deg, rgb(243, 243, 230), transparent),
   url("./assets/noise.svg");
 }
 

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { getAllIllustrations } from "../../services/illustrationsService";
 import { getAllProjects, getProjectDetails } from "../../services/projectsService";
+import { Picture } from "../picture/Picture";
 
 import "./ListProjects.css"
 
@@ -35,9 +36,9 @@ class ListProjects extends Component {
     async fetchDetailsProjects(projects) {
         let lstP = []
         await projects.forEach(async p => {
-            let pro = await getProjectDetails(p.projectName); 
+            let pro = await getProjectDetails(p.projectName);
             lstP.push(pro);
-            this.setState({listProjects: lstP});
+            this.setState({ listProjects: lstP });
         });
     }
 
@@ -47,17 +48,7 @@ class ListProjects extends Component {
                 <h3>Illustrations</h3>
                 <div className="illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
-                        <a key={key} className="container_img" target="_blank" rel="noopener noreferrer" href={illustration.illustration}>
-                            <img src={illustration.illustration} alt={illustration.description} className="picture" />
-                            <div className="text_picture">
-                                <span>
-                                    {illustration.name}
-                                </span>
-                                <span>
-                                    {illustration.description}
-                                </span>
-                            </div>
-                        </a>
+                        <Picture picture={illustration} key={key} />
                     )}
                 </div>
 

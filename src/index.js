@@ -16,25 +16,6 @@ import Footer from './components/footer/Footer';
 
 const projectName = "/artist_portfolio_front";
 
-/*
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <App />,
-  },
-  {
-    path: "/projects/",
-    element: <ListProjects />,
-  },
-  {
-    path: "/projects/:projectName",
-    element: <Projects />,
-  }
-], {
-  basename: projectName,
-});*/
-
-
 const router = createBrowserRouter([
   {
     path: "/",

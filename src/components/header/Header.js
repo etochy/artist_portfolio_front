@@ -9,17 +9,6 @@ class Header extends Component {
             <div >
                 <Link to="/">
                     <div className="containerHeader">
-                        <div className="plan">
-                            <div className="containerLeft">
-                                <div className="containerRight" />
-                            </div>
-                        </div>
-                        <div className="plan">
-                            <div className="containerDetails" />
-                        </div>
-                        <div className="plan">
-                            <div className="containerDetails2" />
-                        </div>
                         <div className="plan ">
                             <h1>
                                 Lola Morand
@@ -30,8 +19,8 @@ class Header extends Component {
                         </div>
                     </div>
                 </Link>
-                <NavBar />
-                <div className='separator' />
+                {/* <NavBar />
+                <div className='separator' /> */}
             </div>
         );
     }
