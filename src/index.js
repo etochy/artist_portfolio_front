@@ -61,7 +61,7 @@ root.render(
 
 function NavbarWrapper() {
   return (
-    <div>
+    <div className='content'>
       <Header />
       <Outlet />
       <Footer />

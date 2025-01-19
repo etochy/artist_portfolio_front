@@ -47,7 +47,7 @@ class Projects extends Component {
 
     render() {
         return (
-            <div>
+            <div className='root__element'>
                 <p>{this.state.projectDetail.name}</p>
                 <p>{this.state.projectDetail.description}</p>
                 <div className="illustration_container_project">

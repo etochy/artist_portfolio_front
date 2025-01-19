@@ -1,9 +1,7 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getAllIllustrations } from "../../services/illustrationsService";
 import { getAllProjects, getProjectDetails } from "../../services/projectsService";
-import { Picture } from "../picture/Picture";
 
 import "./ListProjects.css"
 

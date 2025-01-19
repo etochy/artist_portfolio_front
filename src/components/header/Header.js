@@ -6,21 +6,16 @@ import "./Header.css"
 class Header extends Component {
     render() {
         return (
-            <div >
+            <div className="header__container">
                 <Link to="/">
-                    <div className="containerHeader">
-                        <div className="plan ">
-                            <h1>
-                                Lola Morand
-                            </h1>
-                            <h2>
-                                Illustratrice
-                            </h2>
-                        </div>
+                    <div>
+                        <span className="header__text">
+                            Lola Morand
+                        </span>
                     </div>
                 </Link>
-                <NavBar />
                 <div className='separator' />
+                <NavBar />
             </div>
         );
     }

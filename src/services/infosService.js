@@ -4,7 +4,7 @@ let infosProjets = undefined;
 
 function readFileInfo() {
     return new Promise(resolve => {
-        if (infosProjets == undefined) {
+        if (infosProjets === undefined) {
             fetch(FETCH_URL_ILLUSTRATIONS)
                 .then((response) => response.json())
                 .then((json) => {
@@ -24,7 +24,7 @@ export async function getProjectDetails(projectName) {
 
     let projet = undefined;
     projectList.forEach(p => {
-        if (p.path == projectName)
+        if (p.path === projectName)
             projet = p;
     });
 
@@ -37,7 +37,7 @@ export async function getTagsDetails(idTag) {
 
     let tag = undefined;
     tagList.forEach(t => {
-        if (t.id == idTag)
+        if (t.id === idTag)
             tag = t;
     });
 
@@ -51,7 +51,7 @@ export async function getProjetsForTag(idTag) {
     let projets = [];
     projectList.forEach(p => {
         p.tags.forEach(t => {
-            if (t.id == idTag)
+            if (t.id === idTag)
                 projets.push(mapProject(p));
         });
     });
@@ -65,7 +65,7 @@ export async function getIllustraDetails(illustrationName) {
 
     let illustration = undefined;
     illustrationsList.forEach(i => {
-        if (i.path == illustrationName)
+        if (i.path === illustrationName)
         illustration = i;
     });
 

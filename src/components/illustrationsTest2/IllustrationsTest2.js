@@ -30,7 +30,7 @@ class IllustrationsTest2 extends Component {
 
     render() {
         return (
-            <div>
+            <div  className='root__element'>
                 <h3>Illustrations affichage 1</h3>
                 <div className="test2__illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>

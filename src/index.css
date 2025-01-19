@@ -1,17 +1,26 @@
+@font-face {
+  font-family: "bahnschrift";
+  src: url('./assets/font/BAHNSCHRIFT.TTF');
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: bahnschrift;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(45deg, rgb(243, 243, 230), transparent),
-  url("./assets/noise.svg");
+  /* background: linear-gradient(45deg, rgb(243, 243, 230), transparent),
+  url("./assets/noise.svg"); */
+  padding-right: 20%;
+  padding-left: 20%;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+  /* font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace; */
 }
 
 a {
@@ -25,10 +34,26 @@ a {
 }
 
 .separator {
-  border-bottom: 1px solid grey;
-  margin: 1em;
+  border-bottom: 10px solid white;
+  border-radius: 3px;
+  margin: 5px;
 }
 
 html {
   scroll-behavior: smooth;
+}
+
+#root{
+  background: url(https://launay-esteban.ovh/public_files/illustrations_lola/projects/1_aquarelles_europe/Pie%20Bavarde.png) no-repeat;
+  background-size: contain;
+}
+
+.content{
+  height: 100vh;
+  overflow: auto;
+}
+
+.root__element{
+  background-color: #d8ecdfed;
+  margin-top: 50vh;
 }
