@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/artist_portfolio_front/static/css/main.03b8784f.css",
-    "main.js": "/artist_portfolio_front/static/js/main.2a1a4a73.js",
+    "main.css": "/artist_portfolio_front/static/css/main.66bdca43.css",
+    "main.js": "/artist_portfolio_front/static/js/main.adeb90e9.js",
+    "static/media/BAHNSCHRIFT.TTF": "/artist_portfolio_front/static/media/BAHNSCHRIFT.b00e12e37c52124aa504.TTF",
     "static/media/button.svg": "/artist_portfolio_front/static/media/button.1d0247cdf44d83a16757.svg",
     "index.html": "/artist_portfolio_front/index.html",
-    "static/media/noise.svg": "/artist_portfolio_front/static/media/noise.716f1b9c034a85f63b9f.svg",
-    "main.03b8784f.css.map": "/artist_portfolio_front/static/css/main.03b8784f.css.map",
-    "main.2a1a4a73.js.map": "/artist_portfolio_front/static/js/main.2a1a4a73.js.map"
+    "main.66bdca43.css.map": "/artist_portfolio_front/static/css/main.66bdca43.css.map",
+    "main.adeb90e9.js.map": "/artist_portfolio_front/static/js/main.adeb90e9.js.map"
   },
   "entrypoints": [
-    "static/css/main.03b8784f.css",
-    "static/js/main.2a1a4a73.js"
+    "static/css/main.66bdca43.css",
+    "static/js/main.adeb90e9.js"
   ]
 }
