@@ -15,8 +15,8 @@ class NavBar extends Component {
                         </Link>
                     </ButtonBase>
                     <ButtonBase className="button_navbar" >
-                        <Link to="/test1">
-                            Test 1
+                        <Link to="/about">
+                            A propos
                         </Link>
                     </ButtonBase>
                     <ButtonBase className="button_navbar" >

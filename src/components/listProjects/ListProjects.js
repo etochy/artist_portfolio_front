@@ -1,8 +1,7 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { getAllProjects, getProjectDetails } from "../../services/projectsService";
-
+import { getAllProjects } from "../../services/projectService";
 import "./ListProjects.css"
 
 function withParams(Component) {
@@ -22,17 +21,8 @@ class ListProjects extends Component {
     }
 
     async fetchDataProjects() {
-        let projects = await getAllProjects();
-        this.fetchDetailsProjects(projects);
-    }
-
-    async fetchDetailsProjects(projects) {
-        let lstP = []
-        await projects.forEach(async p => {
-            let pro = await getProjectDetails(p.projectName);
-            lstP.push(pro);
-            this.setState({ listProjects: lstP });
-        });
+        let projects = await getAllProjects();        
+        this.setState({ listProjects: projects });
     }
 
     render() {
@@ -41,9 +31,9 @@ class ListProjects extends Component {
                 <h3>Mes projets</h3>
                 <div className="illustration_container">
                     {this.state.listProjects.map((project, key) =>
-                        <Link to={"/projects/" + project.projectName} key={key}>
+                        <Link to={"/projects/" + project.id} key={key}>
                             <div className="container_img container_img_project" >
-                                <img src={project.illustration} alt={project.description} className="picture" />
+                                <img src={project.illustration?.path} alt={project.description} className="picture" />
                                 <div className="text_picture background" />
                                 <div className="text_picture">
                                     <span>

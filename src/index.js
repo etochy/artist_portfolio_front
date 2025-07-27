@@ -3,8 +3,9 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import Projects from './components/projects/Projects';
+import Admin from './components/admin/Admin';
 import ListProjects from './components/listProjects/ListProjects';
-import IllustrationsTest1 from './components/illustrationsTest1/IllustrationsTest1';
+import About from './components/about/About';
 import IllustrationsTest2 from './components/illustrationsTest2/IllustrationsTest2';
 import Header from './components/header/Header';
 
@@ -28,11 +29,19 @@ const router = createBrowserRouter([
         element: <App />
       },
       {
-        path: "/test1/",
-        element: <IllustrationsTest1 />,
+        path: "/about/",
+        element: <About />,
       },
       {
-        path: "/test2/",
+        path: "/shop/",
+        element: <IllustrationsTest2 />,
+      },
+      {
+        path: "/contact/",
+        element: <IllustrationsTest2 />,
+      },
+      {
+        path: "/portfolio/",
         element: <IllustrationsTest2 />,
       },
       {
@@ -40,8 +49,12 @@ const router = createBrowserRouter([
         element: <ListProjects />,
       },
       {
-        path: "/projects/:projectName",
+        path: "/projects/:projectId",
         element: <Projects />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       }
     ]
   }

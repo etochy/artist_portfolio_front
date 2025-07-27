@@ -4,7 +4,6 @@ import "./Picture.css"
 export function Picture({ picture, cle }) {
 
     const [isOpen, setOpen] = useState(false);
-
     function openPicture() {
         setOpen(true);
     }
@@ -13,25 +12,24 @@ export function Picture({ picture, cle }) {
         if (isOpen) {
             setOpen(false);
         }
-    }
+    }   
 
     const fullPicture = (
         <div className="fullPictureContainer" onClick={closePicture}>
-            <img src={picture.illustration} alt={picture.description} className="fullPicture" />
+            <img src={picture?.illustration?.path} alt={picture?.illustration?.description} className="fullPicture" />
         </div>
     );
-
 
     return (
         <>
             <div className="container_img" onClick={openPicture}>
-                <img src={picture.illustration} alt={picture.description} className="picture" />
+                <img src={picture?.illustration?.path} alt={picture?.illustration?.description} className="picture" />
                 <div className="text_picture">
                     <span>
-                        {picture.name}
+                        {picture?.illustration?.title}
                     </span>
                     <span>
-                        {picture.description}
+                        {picture?.illustration?.description}
                     </span>
                 </div>
             </div>

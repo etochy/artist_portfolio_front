@@ -1,11 +1,10 @@
 import { Component } from "react";
 import React from 'react';
 import { useParams } from "react-router-dom";
-import { getAllIllustrationsProject } from "../../services/projectsService";
-import { getProjectDetails, getProjetsForTag } from "../../services/infosService";
 import "./Projects.css";
 import { Picture } from "../picture/Picture";
 import { Tooltip } from "@mui/material";
+import { getProjectById, getAllPicturesForProject } from "../../services/projectService";
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
@@ -16,7 +15,7 @@ class Projects extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            projectName: "",
+            projectId: "",
             illustrations: [],
             projectDetail: {
             },
@@ -25,20 +24,20 @@ class Projects extends Component {
 
     componentDidMount() {
         this.setState({
-            projectName: this.props.params.projectName
+            projectId: this.props.params.projectId
         }, () => {
             this.fecthProjectInfos();
         });
     }
 
     async fecthProjectInfos() {
-        let projectDetail = await getProjectDetails(this.state.projectName);
-        let illustrations = await getAllIllustrationsProject(this.state.projectName + "/");
+        let projectDetail = await getProjectById(this.state.projectId);
+        let illustrations = await getAllPicturesForProject(this.state.projectId);
 
-        await projectDetail.tags.forEach(async t => {
-            t.projects = await getProjetsForTag(t.id);
-        });
-        console.log(projectDetail);
+        // await projectDetail.tags.forEach(async t => {
+        //     t.projects = await getProjetsForTag(t.id);
+        // });
+        console.log(illustrations);
         this.setState({
             projectDetail: projectDetail,
             illustrations: illustrations

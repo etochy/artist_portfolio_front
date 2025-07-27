@@ -1,15 +1,15 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
-import { getAllIllustrations } from "../../services/illustrationsService";
+// import { getAllIllustrations } from "../../services/illustrationsService";
 import { SmallPicture } from "../smallPicture/SmallPicture";
 
-import "./IllustrationsTest1.css"
+import "./About.css"
 
 function withParams(Component) {
     return props => <Component {...props} params={useParams()} />;
 }
 
-class IllustrationsTest1 extends Component {
+class About extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,10 +22,10 @@ class IllustrationsTest1 extends Component {
     }
 
     async fetchDataProjects() {
-        let illus = await getAllIllustrations();
-        this.setState({
-            listIllustrations: illus
-        });
+        // let illus = await getAllIllustrations();
+        // this.setState({
+        //     listIllustrations: illus
+        // });
     }
 
     render() {
@@ -42,4 +42,4 @@ class IllustrationsTest1 extends Component {
     }
 }
 
-export default withParams(IllustrationsTest1);
+export default withParams(About);

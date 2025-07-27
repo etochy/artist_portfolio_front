@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
-import { getAllIllustrations } from "../../services/illustrationsService";
+import { getAllPictures } from "../../services/picturesService";
 import { Picture } from "../picture/Picture";
 
 import "./Illustrations.css"
@@ -22,7 +22,7 @@ class Illustrations extends Component {
     }
 
     async fetchDataProjects() {
-        let illus = await getAllIllustrations();
+        let illus = await getAllPictures();
         this.setState({
             listIllustrations: illus
         });
@@ -34,7 +34,7 @@ class Illustrations extends Component {
                 <h3>Illustrations</h3>
                 <div className="illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
-                        <Picture picture={illustration} key={key} />
+                        <Picture picture={illustration.path} key={key} />
                     )}
                 </div>
             </div>

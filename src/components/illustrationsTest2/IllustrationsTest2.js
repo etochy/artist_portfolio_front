@@ -1,6 +1,6 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
-import { getAllIllustrations } from "../../services/illustrationsService";
+import { getAllPictures } from "../../services/picturesService";
 import { SmallPicture } from "../smallPicture/SmallPicture";
 
 import "./IllustrationsTest2.css"
@@ -22,7 +22,7 @@ class IllustrationsTest2 extends Component {
     }
 
     async fetchDataProjects() {
-        let illus = await getAllIllustrations();
+        let illus = await getAllPictures();
         this.setState({
             listIllustrations: illus
         });
@@ -34,7 +34,7 @@ class IllustrationsTest2 extends Component {
                 <h3>Illustrations affichage 1</h3>
                 <div className="test2__illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
-                        <SmallPicture picture={illustration} key={key}/>
+                        <SmallPicture picture={illustration.path} key={key}/>
                     )}
                 </div>
             </div>
