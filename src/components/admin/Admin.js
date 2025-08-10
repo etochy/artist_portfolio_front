@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
-import { getAllProjects } from "../../services/projectService";
-import { getAllPictures } from "../../services/picturesService";
+import { getAllProjects, createProject } from "../../services/projectService";
+import { getAllPictures, createPicture } from "../../services/picturesService";
+import { loginUser } from "../../services/authService";
 
 
 
@@ -28,12 +29,15 @@ class Admin extends Component {
             typeProject: "",
             titlePicture: "",
             descriptionPicture: "",
-            file: null
+            file: null,
+            token: null
         }
 
         this.handleChangeInput = this.handleChangeInput.bind(this);
         this.handleFileChange = this.handleFileChange.bind(this);
         this.handleLogin = this.handleLogin.bind(this);
+        this.createProject = this.createProject.bind(this);
+        this.createPicture = this.createPicture.bind(this);
         this.disconnect = this.disconnect.bind(this);
     }
 
@@ -49,16 +53,28 @@ class Admin extends Component {
 
     async fetchDataPictures() {
         let pictures = await getAllPictures();
-        this.setState({ listPictures: pictures });
+        this.setState({ illustrations: pictures });
     }
 
-    handleLogin(event) {
-        this.setState({ isUserLogged: true });
+    async handleLogin(event) {
         event.preventDefault();
+
+        let token = await loginUser(this.state.login, this.state.password);
+
+        if (token) {
+            this.setState({ isUserLogged: true, token: token });
+        } else {
+            alert("Erreur lors de l'authentification");
+
+            this.setState({ isUserLogged: false, password: "", login: "", token: "" });
+        }
+
     }
+
+
     disconnect(event) {
-        this.setState({ isUserLogged: false, password: "", login: "" });
         event.preventDefault();
+        this.setState({ isUserLogged: false, password: "", login: "", token: "" });
     }
 
     handleChangeInput(event, input) {
@@ -74,29 +90,46 @@ class Admin extends Component {
     };
 
 
-    createProject() {
-        this.setState({
-            titleProject: "",
-            descriptionProject: "",
-            typeProject: ""
-        });
-        this.fetchDataProjects();
+    async createProject(event) {
+        event.preventDefault();
+
+        const returnOk = await createProject(this.state.titleProject,
+            this.state.descriptionProject, "projet_pro", this.state.token);
+        if (returnOk) {
+            this.setState({
+                titleProject: "",
+                descriptionProject: "",
+                typeProject: ""
+            });
+            this.fetchDataProjects();
+        } else {
+            alert("Erreur lors de la création de projet");
+        }
     }
 
-    createPicture() {
-        this.setState({
-            titlePicture: "",
-            descriptionPicture: "",
-            file: null
-        });
-        this.fetchDataPictures();
+    async createPicture(event) {
+        event.preventDefault();
+        const returnOk = await createPicture(this.state.titlePicture,
+            this.state.descriptionPicture, this.state.file, this.state.token);
+        if (returnOk) {
+            console.log("ok");
+            
+            this.setState({
+                titlePicture: "",
+                descriptionPicture: "",
+                file: null
+            });
+            this.fetchDataPictures();
+        } else {
+            alert("Erreur lors de la création de l'image");
+        }
     }
 
     render() {
         let loginPart;
         if (!this.state.isUserLogged) {
             loginPart = (
-                <form className="card login" onSubmit={this.login}>
+                <form className="card login" onSubmit={this.handleLogin}>
                     <input type="text" className="login_input" value={this.state.login} onChange={e => this.handleChangeInput(e, "login")}></input>
                     <input type="password" className="passwod_input" value={this.state.password} onChange={e => this.handleChangeInput(e, "password")}></input>
                     <button type="submit">Login</button>
@@ -109,7 +142,7 @@ class Admin extends Component {
         }
 
         const createProjectForm = (
-            <form className="card project_creation" onSubmit={this.login}>
+            <form className="card project_creation" onSubmit={this.createProject}>
                 <h3>Créer un nouveau projet</h3>
                 <p>Titre</p>
                 <input type="text" className="input" value={this.state.titleProject} onChange={e => this.handleChangeInput(e, "titleProject")}></input>
@@ -122,7 +155,7 @@ class Admin extends Component {
         )
 
         const createPictureForm = (
-            <form className="card project_creation" onSubmit={this.login}>
+            <form className="card project_creation" onSubmit={this.createPicture}>
                 <h3>Ajouter une nouvelle illustration</h3>
                 <p>Titre</p>
                 <input type="text" className="input" value={this.state.titlePicture} onChange={e => this.handleChangeInput(e, "titlePicture")}></input>

@@ -50,3 +50,34 @@ export function getPictureById(idPicture) {
 
     });
 }
+
+
+export function createPicture(title, description, file, token) {
+    const formData = new FormData();
+    formData.append("data", JSON.stringify({
+        title: title,
+        description: description
+    }));
+    formData.append("file", file);
+    return new Promise(resolve => {
+        fetch(
+            FETCH_URL_PRICTURES,
+            {
+                method: "POST",
+                headers: {
+                    authorization: token
+                },
+                body: formData
+            },
+        )
+            .then((response) =>
+                response.json
+            ).then(data => {
+                if (data.status <= 204) {
+                    resolve(true);
+                } else {
+                    resolve(false);
+                }
+            })
+    });
+}

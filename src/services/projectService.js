@@ -16,9 +16,9 @@ export function getAllProjects() {
             .then((result) => {
                 let projectsList = [];
                 result.projects.forEach(async project => {
-                    console.log("check");
                     const picture = project.picture;
-                    picture.path = URL_PICTURES + picture.path
+                    if (picture)
+                        picture.path = URL_PICTURES + picture.path
                     projectsList.push({
                         id: project.id,
                         name: project.title,
@@ -84,5 +84,53 @@ export async function getAllPicturesForProject(idProject) {
                 });
                 resolve(picturesList);
             });
+    });
+}
+
+export function createProject(title, description, type, token) {
+    return new Promise(resolve => {
+        fetch(
+            FETCH_URL_PROJECT,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: token
+                },
+                body: JSON.stringify({
+                    title: title,
+                    description: description,
+                    type: type
+
+                })
+            },
+        )
+            .then((response) => {
+                resolve(true);
+            }).catch(err => resolve(false));
+    });
+}
+
+export function updateProject(title, description, type, idPicture) {
+    return new Promise(resolve => {
+        fetch(
+            FETCH_URL_PROJECT,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    title: title,
+                    description: description,
+                    type: type,
+                    id_picture: idPicture
+
+                })
+            },
+        )
+            .then((response) => {
+                resolve(true);
+            }).catch(err => resolve(false))
     });
 }
