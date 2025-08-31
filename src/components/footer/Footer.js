@@ -5,7 +5,7 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer_container">
-                Website provided by Esteban Launay and hosted on github-pages
+                Website in progress for Lola Morand
             </div>
         );
     }

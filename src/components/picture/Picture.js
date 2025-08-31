@@ -16,20 +16,20 @@ export function Picture({ picture, cle }) {
 
     const fullPicture = (
         <div className="fullPictureContainer" onClick={closePicture}>
-            <img src={picture?.illustration?.path} alt={picture?.illustration?.description} className="fullPicture" />
+            <img src={picture?.path} alt={picture?.description} className="fullPicture" />
         </div>
     );
 
     return (
         <>
             <div className="container_img" onClick={openPicture}>
-                <img src={picture?.illustration?.path} alt={picture?.illustration?.description} className="picture" />
+                <img src={picture?.path} alt={picture?.description} className="picture" />
                 <div className="text_picture">
                     <span>
-                        {picture?.illustration?.title}
+                        {picture?.title}
                     </span>
                     <span>
-                        {picture?.illustration?.description}
+                        {picture?.description}
                     </span>
                 </div>
             </div>

@@ -1,8 +1,9 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
 import { getAllProjects, createProject } from "../../services/projectService";
-import { getAllPictures, createPicture } from "../../services/picturesService";
+import { getAllPictures, createPicture, deletePicture } from "../../services/picturesService";
 import { loginUser } from "../../services/authService";
+import EditProject from "../editProject/EditProject";
 
 
 
@@ -20,7 +21,6 @@ class Admin extends Component {
             loginUsername: "",
             illustrations: [],
             listProjects: [],
-            listPictures: [],
             login: "",
             password: "",
             isUserLogged: false,
@@ -30,7 +30,8 @@ class Admin extends Component {
             titlePicture: "",
             descriptionPicture: "",
             file: null,
-            token: null
+            token: null,
+            idProjectToEdit: null
         }
 
         this.handleChangeInput = this.handleChangeInput.bind(this);
@@ -94,7 +95,7 @@ class Admin extends Component {
         event.preventDefault();
 
         const returnOk = await createProject(this.state.titleProject,
-            this.state.descriptionProject, "projet_pro", this.state.token);
+            this.state.descriptionProject, this.state.typeProject, this.state.token);
         if (returnOk) {
             this.setState({
                 titleProject: "",
@@ -112,8 +113,6 @@ class Admin extends Component {
         const returnOk = await createPicture(this.state.titlePicture,
             this.state.descriptionPicture, this.state.file, this.state.token);
         if (returnOk) {
-            console.log("ok");
-            
             this.setState({
                 titlePicture: "",
                 descriptionPicture: "",
@@ -124,6 +123,27 @@ class Admin extends Component {
             alert("Erreur lors de la création de l'image");
         }
     }
+
+    async deletePicture(idPicture) {
+        if (window.confirm("Suppression de l'image ?") === true) {
+            const returnOk = await deletePicture(idPicture, this.state.token);
+            if (returnOk) {
+                this.fetchDataPictures();
+            } else {
+                alert("Erreur lors de la suppression");
+            }
+        }
+    }
+
+    updateProject(idProject) {
+        this.setState({ idProjectToEdit: idProject });
+    }
+
+    closePopup() {
+        this.setState({ idProjectToEdit: null });
+    }
+
+
 
     render() {
         let loginPart;
@@ -149,7 +169,13 @@ class Admin extends Component {
                 <p>description</p>
                 <input type="text" className="input" value={this.state.descriptionProject} onChange={e => this.handleChangeInput(e, "descriptionProject")}></input>
                 <p>Type</p>
-                <input type="text" className="input" value={this.state.typeProject} onChange={e => this.handleChangeInput(e, "typeProject")}></input>
+                <select value={this.state.typeProject} onChange={e => this.handleChangeInput(e, "typeProject")}>
+                    <option value="">--Choisir un type de projet--</option>
+                    <option value="projet_pro">Projet pro</option>
+                    <option value="illustration">Illustrations</option>
+                    <option value="perso">Perso</option>
+                    <option value="autre">Autre</option>
+                </select>
                 <button type="submit">Créer projet</button>
             </form>
         )
@@ -167,13 +193,24 @@ class Admin extends Component {
             </form>
         )
 
+        const createPopupEditProject = (
+            <div className="popup">
+                <div className="popup__content">
+                    <div>Edition de projet</div>
+                    <EditProject idProject={this.state.idProjectToEdit} token={this.state.token}/>
+                    <button onClick={() => this.closePopup()}>Fermer</button>
+                </div>
+            </div>
+        );
+
 
         return (
             <div>
                 <h1>Administration</h1>
                 {loginPart}
-                {createProjectForm}
-                {createPictureForm}
+                {this.state.token ? createProjectForm : null}
+                {this.state.token ? createPictureForm : null}
+                {this.state.idProjectToEdit ? createPopupEditProject : null}
                 <div className="card projects">
                     <h3>Liste des projets</h3>
                     {this.state.listProjects.map((project, key) =>
@@ -190,14 +227,17 @@ class Admin extends Component {
                                 <span>
                                     {project.type}
                                 </span>
+                                <button onClick={() => this.updateProject(project.id)}>Edit</button>
+                                {/* {this.state.token ?  : null} */}
                             </div>
+
                         </div>
                     )}
                 </div>
                 <div className="card illustrations">
                     <h3>Liste des illustrations</h3>
                     {this.state.illustrations.map((picture, key) =>
-                        <div className="container_img container_img_project" >
+                        <div className="container_img container_img_picture" >
                             <img src={picture?.path} alt={picture.description} className="picture" />
                             <div className="text_picture background" />
                             <div className="text_picture">
@@ -207,6 +247,8 @@ class Admin extends Component {
                                 <span>
                                     {picture.description}
                                 </span>
+                                {this.state.token ? <button onClick={() => this.deletePicture(picture.id)}>Delete</button> : null}
+
                             </div>
                         </div>
                     )}

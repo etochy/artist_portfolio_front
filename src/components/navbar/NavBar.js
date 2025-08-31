@@ -14,16 +14,16 @@ class NavBar extends Component {
                             Home
                         </Link>
                     </ButtonBase>
-                    <ButtonBase className="button_navbar" >
+                    {/* <ButtonBase className="button_navbar" >
                         <Link to="/about">
                             A propos
                         </Link>
-                    </ButtonBase>
-                    <ButtonBase className="button_navbar" >
+                    </ButtonBase> */}
+                    {/* <ButtonBase className="button_navbar" >
                         <Link to="/test2">
                             Test 2
                         </Link>
-                    </ButtonBase>
+                    </ButtonBase> */}
                     <ButtonBase className="button_navbar">
                         <Link to="/projects">
                             <div className="button_navbar_container">

@@ -51,6 +51,24 @@ export function getPictureById(idPicture) {
     });
 }
 
+export function deletePicture(idPicture, token) {
+    return new Promise(resolve => {
+        if (!idPicture) return resolve(null);
+        else {
+            fetch(
+                FETCH_URL_PRICTURES + "/" + idPicture,
+                {
+                    method: "DELETE",
+                    headers: {
+                        authorization: token
+                    }
+                }
+            )
+                .then((response) => resolve(response.status <= 204));
+        }
+    });
+}
+
 
 export function createPicture(title, description, file, token) {
     const formData = new FormData();
@@ -71,9 +89,9 @@ export function createPicture(title, description, file, token) {
             },
         )
             .then((response) =>
-                response.json
+                response.json()
             ).then(data => {
-                if (data.status <= 204) {
+                if (data?.idPicture) {
                     resolve(true);
                 } else {
                     resolve(false);

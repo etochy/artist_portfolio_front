@@ -34,7 +34,7 @@ class Illustrations extends Component {
                 <h3>Illustrations</h3>
                 <div className="illustration_container">
                     {this.state.listIllustrations.map((illustration, key) =>
-                        <Picture picture={illustration.path} key={key} />
+                        <Picture picture={illustration} key={key} />
                     )}
                 </div>
             </div>

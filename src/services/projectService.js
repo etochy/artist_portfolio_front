@@ -47,14 +47,14 @@ export async function getProjectById(idProject) {
             .then(async (result) => {
                 const project = result.project;
                 const picture = project.picture;
-                picture.path = URL_PICTURES + picture.path
+                if (picture)
+                    picture.path = URL_PICTURES + picture.path
                 let projects = {
                     id: project.id,
-                    name: project.title,
+                    title: project.title,
                     description: project.description,
-                    illustration: picture,
-                    projectName: project.title,
-                    tye: project.type
+                    picture: picture,
+                    type: project.type
                 }
                 resolve(projects);
             });
@@ -87,6 +87,25 @@ export async function getAllPicturesForProject(idProject) {
     });
 }
 
+export async function addPicturesForProject(idProject, idPicture, token) {
+
+    return new Promise(resolve => {
+        fetch(
+            FETCH_URL_PROJECT + "/" + idProject + "/pictures/" + idPicture,
+            {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: token
+                },
+                body: null
+            }
+        )
+            .then((response) => resolve(response.status <= 204));
+    });
+}
+
+
 export function createProject(title, description, type, token) {
     return new Promise(resolve => {
         fetch(
@@ -111,14 +130,15 @@ export function createProject(title, description, type, token) {
     });
 }
 
-export function updateProject(title, description, type, idPicture) {
+export function updateProject(idProject, title, description, type, idPicture, token) {
     return new Promise(resolve => {
         fetch(
-            FETCH_URL_PROJECT,
+            FETCH_URL_PROJECT + "/" + idProject,
             {
                 method: "PUT",
                 headers: {
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    authorization: token
                 },
                 body: JSON.stringify({
                     title: title,
@@ -132,5 +152,23 @@ export function updateProject(title, description, type, idPicture) {
             .then((response) => {
                 resolve(true);
             }).catch(err => resolve(false))
+    });
+}
+
+export function deletePictureProject(idProject, idPicture, token) {
+    return new Promise(resolve => {
+        fetch(
+            FETCH_URL_PROJECT + "/" + idProject + "/pictures/" + idPicture,
+            {
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json",
+                    authorization: token
+                },
+            },
+        )
+            .then((response) =>
+                resolve(response.status <= 204)
+            ).catch(err => resolve(false))
     });
 }
