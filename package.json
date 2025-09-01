@@ -1,7 +1,7 @@
 {
   "name": "artist_portfolio_front",
   "version": "0.1.0",
-  "homepage": "https://etochy.github.io/artist_portfolio_front",
+  "homepage": "/app/",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.10.5",
