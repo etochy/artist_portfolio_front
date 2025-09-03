@@ -6,6 +6,11 @@ class Footer extends Component {
         return (
             <div className="footer_container">
                 Website in progress for Lola Morand
+                <ButtonBase className="button_navbar" >
+                    <Link to="/admin">
+                        admin
+                    </Link>
+                </ButtonBase>
             </div>
         );
     }
