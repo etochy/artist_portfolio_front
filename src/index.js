@@ -17,7 +17,7 @@ import {
 import "./index.css";
 import Footer from './components/footer/Footer';
 
-const projectName = "/artist_portfolio_front";
+const projectName = "/app";
 
 const router = createBrowserRouter([
   {
