@@ -197,7 +197,7 @@ class Admin extends Component {
             <div className="popup">
                 <div className="popup__content">
                     <div>Edition de projet</div>
-                    <EditProject idProject={this.state.idProjectToEdit} token={this.state.token}/>
+                    <EditProject idProject={this.state.idProjectToEdit} token={this.state.token} />
                     <button onClick={() => this.closePopup()}>Fermer</button>
                 </div>
             </div>
@@ -211,8 +211,8 @@ class Admin extends Component {
                 {this.state.token ? createProjectForm : null}
                 {this.state.token ? createPictureForm : null}
                 {this.state.idProjectToEdit ? createPopupEditProject : null}
+                <h3>Liste des projets</h3>
                 <div className="card projects">
-                    <h3>Liste des projets</h3>
                     {this.state.listProjects.map((project, key) =>
                         <div className="container_img container_img_project" >
                             <img src={project.illustration?.path} alt={project.description} className="picture" />
@@ -227,15 +227,14 @@ class Admin extends Component {
                                 <span>
                                     {project.type}
                                 </span>
-                                <button onClick={() => this.updateProject(project.id)}>Edit</button>
-                                {/* {this.state.token ?  : null} */}
+                                {this.state.token ? <button onClick={() => this.updateProject(project.id)}>Edit</button> : null}
                             </div>
 
                         </div>
                     )}
                 </div>
+                <h3>Liste des illustrations</h3>
                 <div className="card illustrations">
-                    <h3>Liste des illustrations</h3>
                     {this.state.illustrations.map((picture, key) =>
                         <div className="container_img container_img_picture" >
                             <img src={picture?.path} alt={picture.description} className="picture" />

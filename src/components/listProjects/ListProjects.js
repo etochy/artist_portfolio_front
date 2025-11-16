@@ -37,7 +37,7 @@ class ListProjects extends Component {
                                 <div className="text_picture background" />
                                 <div className="text_picture">
                                     <span>
-                                        {project.name}
+                                        {project.title}
                                     </span>
                                     <span>
                                         {project.description}

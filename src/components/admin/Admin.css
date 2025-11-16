@@ -35,4 +35,24 @@
     width: 60%;
     min-width: 200px;
     padding: 1em;
+    overflow: auto;
+}
+
+.card.projects{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card.illustrations{
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.card.projects .container_img.container_img_project{
+    max-width: 10em;
+    max-height: 10em;
+}
+.card.illustrations .container_img.container_img_picture{
+    max-width: 10em;
+    max-height: 10em;
 }

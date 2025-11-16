@@ -23,7 +23,7 @@ export function Picture({ picture, cle }) {
     return (
         <>
             <div className="container_img" onClick={openPicture}>
-                <img src={picture?.path} alt={picture?.description} className="picture" />
+                <img src={picture?.path} alt={picture?.title} className="picture" />
                 <div className="text_picture">
                     <span>
                         {picture?.title}

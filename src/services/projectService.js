@@ -21,7 +21,7 @@ export function getAllProjects() {
                         picture.path = URL_PICTURES + picture.path
                     projectsList.push({
                         id: project.id,
-                        name: project.title,
+                        title: project.title,
                         description: project.description,
                         illustration: picture,
                         projectName: project.title,

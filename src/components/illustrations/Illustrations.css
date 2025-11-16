@@ -14,7 +14,10 @@
 
 .picture {
     max-height: 20em;
+    max-width: 20em;
     /* border-radius: 10px; */
+    height: 100%;
+    width: 100%;
 }
 
 .text_picture {
