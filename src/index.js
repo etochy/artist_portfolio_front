@@ -74,10 +74,12 @@ root.render(
 
 function NavbarWrapper() {
   return (
+    <div className='root'>
+    <Header />
     <div className='content'>
-      <Header />
       <Outlet />
       <Footer />
+    </div>
     </div>
   )
 };

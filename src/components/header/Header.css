@@ -4,7 +4,7 @@
   position: sticky;
   background-attachment: fixed;
   top: 0;
-  background: url(http://launay-esteban.ovh/public_files/illustrations_lola/projects/1_aquarelles_europe/Pie%20Bavarde.png) no-repeat;
+  /* background: url(http://launay-esteban.ovh/public_files/illustrations_lola/projects/1_aquarelles_europe/Pie%20Bavarde.png) no-repeat; */
   background-size: cover;
 
   z-index: 999;

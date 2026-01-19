@@ -27,35 +27,15 @@ class Contact extends Component {
         return (
             <div>
                 <span>
-                    Me contacter :
+                    Contact :
                 </span>
                 <br />
-                <span>Vous pouvez me contacter en envoyer un mail à : ceciEstUneFausseAdresse@gmail.com</span>
                 <br />
-                <span>Ou via le formulaire si dessous</span>
+                <span>Vous pouvez me contacter en envoyer un mail à : <a href="mailto:lolamorand.illustration@gmail.com" target="_blank">lolamorand.illustration@gmail.com</a></span>
                 <br />
-                <div className="contact_container">
-                    <div className="contact_header">
-                        <TextField
-                            required
-                            id="mail"
-                            label="Adresse Mail"
-                            className="contact_mail"
-                        />
-                        <TextField
-                            required
-                            id="object"
-                            label="Objet"
-                        />
-                    </div>
-                    <TextField
-                        required
-                        id="message"
-                        label="Message"
-                        multiline
-                        rows={4}
-                    />
-                </div>
+                <span>Ou me contacter via instagram : <a href="https://www.instagram.com/straka.illustration/" target="_blank">straka.illustration</a></span>
+                <br />
+                <br />
             </div>
         )
     }

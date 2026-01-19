@@ -28,5 +28,5 @@
 
 .picture {
     max-height: 20em;
-    /* border-radius: 10px; */
+    text-overflow: ellipsis;
 }

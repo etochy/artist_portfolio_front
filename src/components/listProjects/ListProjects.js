@@ -29,7 +29,7 @@ class ListProjects extends Component {
         return (
             <div>
                 <h3>Mes projets</h3>
-                <div className="illustration_container">
+                <div className="illustration_container illustration_container_projects">
                     {this.state.listProjects.map((project, key) =>
                         <Link to={"/projects/" + project.id} key={key}>
                             <div className="container_img container_img_project" >
@@ -38,9 +38,6 @@ class ListProjects extends Component {
                                 <div className="text_picture">
                                     <span>
                                         {project.title}
-                                    </span>
-                                    <span>
-                                        {project.description}
                                     </span>
                                 </div>
                             </div>

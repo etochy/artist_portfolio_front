@@ -49,7 +49,7 @@ class Projects extends Component {
             <div className='root__element'>
                 <h1>{this.state.projectDetail.title}</h1>
                 <h3>{this.state.projectDetail.description}</h3>
-                <Picture picture={this.state.projectDetail.picture }/>
+                {/* <Picture picture={this.state.projectDetail.picture }/> */}
                 <div className="illustration_container_project">
                     {this.state.illustrations.map((illustration, key) =>
                         <Picture picture={ illustration } key={key} />

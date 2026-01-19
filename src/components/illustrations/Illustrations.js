@@ -32,7 +32,7 @@ class Illustrations extends Component {
         return (
             <div>
                 <h3>Illustrations</h3>
-                <div className="illustration_container">
+                <div className="illustration_container illustration_container_home">
                     {this.state.listIllustrations.map((illustration, key) =>
                         <Picture picture={illustration} key={key} />
                     )}

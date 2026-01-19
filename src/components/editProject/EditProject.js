@@ -130,7 +130,7 @@ class EditProject extends Component {
                     <p>Titre</p>
                     <input type="text" className="input" value={this.state.titleProject} onChange={e => this.handleChangeInput(e, "titleProject")}></input>
                     <p>description</p>
-                    <input type="text" className="input" value={this.state.descriptionProject} onChange={e => this.handleChangeInput(e, "descriptionProject")}></input>
+                    <textarea rows="5" cols="70" className="input" value={this.state.descriptionProject} onChange={e => this.handleChangeInput(e, "descriptionProject")}></textarea>
                     <p>Type</p>
                     <select value={this.state.typeProject} onChange={e => this.handleChangeInput(e, "typeProject")}>
                         <option value="">--Choisir un type de projet--</option>

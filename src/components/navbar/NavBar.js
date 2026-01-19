@@ -11,7 +11,7 @@ class NavBar extends Component {
                 <div className="navbar_container">
                     <ButtonBase className="button_navbar" >
                         <Link to="/">
-                            Home
+                            Accueil
                         </Link>
                     </ButtonBase>
                     {/* <ButtonBase className="button_navbar" >
@@ -28,7 +28,7 @@ class NavBar extends Component {
                         <Link to="/projects">
                             <div className="button_navbar_container">
                                 <span>
-                                    Liste Projets
+                                    Projets
                                 </span>
                             </div>
                         </Link>

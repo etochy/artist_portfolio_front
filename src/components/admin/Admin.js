@@ -167,7 +167,7 @@ class Admin extends Component {
                 <p>Titre</p>
                 <input type="text" className="input" value={this.state.titleProject} onChange={e => this.handleChangeInput(e, "titleProject")}></input>
                 <p>description</p>
-                <input type="text" className="input" value={this.state.descriptionProject} onChange={e => this.handleChangeInput(e, "descriptionProject")}></input>
+                <textarea className="input" rows="5" cols="70"  value={this.state.descriptionProject} onChange={e => this.handleChangeInput(e, "descriptionProject")}></textarea>
                 <p>Type</p>
                 <select value={this.state.typeProject} onChange={e => this.handleChangeInput(e, "typeProject")}>
                     <option value="">--Choisir un type de projet--</option>
@@ -186,7 +186,7 @@ class Admin extends Component {
                 <p>Titre</p>
                 <input type="text" className="input" value={this.state.titlePicture} onChange={e => this.handleChangeInput(e, "titlePicture")}></input>
                 <p>description</p>
-                <input type="text" className="input" value={this.state.descriptionPicture} onChange={e => this.handleChangeInput(e, "descriptionPicture")}></input>
+                <textarea className="input" rows="5" cols="70"  value={this.state.descriptionPicture} onChange={e => this.handleChangeInput(e, "descriptionPicture")}></textarea>
                 <p>Fichier</p>
                 <input type="file" id="avatar" name="avatar" accept="image/png, image/jpeg" onChange={this.handleFileChange} />
                 <button type="submit">Créer Image</button>
@@ -222,9 +222,6 @@ class Admin extends Component {
                                     {project.title}
                                 </span>
                                 <span>
-                                    {project.description}
-                                </span>
-                                <span>
                                     {project.type}
                                 </span>
                                 {this.state.token ? <button onClick={() => this.updateProject(project.id)}>Edit</button> : null}
@@ -242,9 +239,6 @@ class Admin extends Component {
                             <div className="text_picture">
                                 <span>
                                     {picture.title}
-                                </span>
-                                <span>
-                                    {picture.description}
                                 </span>
                                 {this.state.token ? <button onClick={() => this.deletePicture(picture.id)}>Delete</button> : null}
 

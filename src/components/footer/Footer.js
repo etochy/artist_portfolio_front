@@ -6,10 +6,10 @@ class Footer extends Component {
     render() {
         return (
             <div className="footer_container">
-                Website in progress for Lola Morand
+                Lola Morand. Tous droits réservés
                 <p>
                     <Link to="/admin">
-                        admin
+                        _
                     </Link>
                 </p>
             </div>

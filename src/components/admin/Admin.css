@@ -56,3 +56,12 @@
     max-width: 10em;
     max-height: 10em;
 }
+
+.card.projects .container_img.container_img_project .picture{
+    max-width: 10em;
+    max-height: 10em;
+}
+.card.illustrations .container_img.container_img_picture .picture{
+    max-width: 10em;
+    max-height: 10em;
+}

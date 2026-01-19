@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
       <div className='root__element'>
-        <MainPages />
+        {/* <MainPages /> */}
         <Illustrations />
         <ListProjects />
         <div id="a-propos" className='separator' />
