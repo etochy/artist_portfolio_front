@@ -33,7 +33,7 @@ class Contact extends Component {
 
                 <p>Ou me contacter via instagram : <a href="https://www.instagram.com/straka.illustration/" rel="noreferrer"  target="_blank">straka.illustration</a></p>
 
-                <a href="https://lola-morand-illustration.ovh/BOOK_MORAND_Lola_2026.pdf" rel="noreferrer" target="_blank">Cliquez pour accéder a mon portfolio</a>
+                <a href="https://lola-morand-illustration.ovh/BOOK_MORAND_Lola_2026.pdf" rel="noreferrer" target="_blank">Cliquer pour accéder à mon portfolio</a>
                 <br />
             </div>
         )
