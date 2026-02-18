@@ -1,6 +1,5 @@
 import { Component } from "react";
 import { useParams } from "react-router-dom";
-import TextField from '@mui/material/TextField';
 import "./Contact.css";
 
 function withParams(Component) {
@@ -30,11 +29,11 @@ class Contact extends Component {
                     Contact :
                 </span>
                 <br />
-                <br />
-                <span>Vous pouvez me contacter en envoyer un mail à : <a href="mailto:lolamorand.illustration@gmail.com" target="_blank">lolamorand.illustration@gmail.com</a></span>
-                <br />
-                <span>Ou me contacter via instagram : <a href="https://www.instagram.com/straka.illustration/" target="_blank">straka.illustration</a></span>
-                <br />
+                <p>Vous pouvez me contacter en envoyer un mail à : <a href="mailto:lolamorand.illustration@gmail.com"  rel="noreferrer"  target="_blank">lolamorand.illustration@gmail.com</a></p>
+
+                <p>Ou me contacter via instagram : <a href="https://www.instagram.com/straka.illustration/" rel="noreferrer"  target="_blank">straka.illustration</a></p>
+
+                <a href="https://lola-morand-illustration.ovh/BOOK_MORAND_Lola_2026.pdf" rel="noreferrer" target="_blank">Cliquez pour accéder a mon portfolio</a>
                 <br />
             </div>
         )
